@@ -64,7 +64,7 @@ public:
 	AlignedAllocator(const AlignedAllocator< U, Align > &) throw() {}
 	pointer address(reference x) const { return &x; }
 	const_pointer address(const_reference x) const { return &x; }
-	pointer allocate(size_type s, std::allocator< void >::const_pointer hint = 0)
+	pointer allocate(size_type s, const void *hint = 0)
 	{ return (T *)a_malloc(s * sizeof(T), Align); }
 	void deallocate(pointer p, size_type) { a_free(p); }
 	size_type max_size() const throw() { return std::numeric_limits< size_type >::max(); }
